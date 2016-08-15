@@ -17,7 +17,7 @@
  * @see https://www.npmjs.com/package/hypertimer
  */
 
-declare namespace hypertimer {
+declare module "hypertimer" {
     export interface hypertimer {
         new(options ?  : HyperTimerOptions) : hypertimer;
 
