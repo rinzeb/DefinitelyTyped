@@ -18,8 +18,8 @@
  */
 
 declare module "hypertimer" {
-    export interface hypertimer {
-        new(options ?  : HyperTimerOptions) : hypertimer;
+    export interface HyperTimer {
+        new(options ?  : HyperTimerOptions) : HyperTimer;
 
         /**
          * Is the timer running?
@@ -85,7 +85,7 @@ declare module "hypertimer" {
         list()
 
         /**
-         * Destroy the hypertimer. Clears all timeouts, and closes
+         * Destroy the HyperTimer. Clears all timeouts, and closes
          * any connection to master and slave hypertimers.
          */
         destroy()
@@ -107,12 +107,12 @@ declare module "hypertimer" {
     export interface HyperTimerOptions {
         /**
          * The rate of progress of time with respect to real-time (default 1). Rate must be
-         * a positive number. For example when 2, the time of the hypertimer runs twice as
+         * a positive number. For example when 2, the time of the HyperTimer runs twice as
          * fast as real-time. Only applicable when option paced is true.
          */
         rate ?  : number;
         /**
-         * Sets the simulation time. If not configured, a hypertimer is instantiated with the
+         * Sets the simulation time. If not configured, a HyperTimer is instantiated with the
          * system time.
          */
         time ?  : Date | string | number;
@@ -129,14 +129,14 @@ declare module "hypertimer" {
          */
         deterministic ?  : boolean;
         /**
-         * The url of a master hypertimer, for example "ws://localhost:8081". If configured,
-         * the hypertimer will run as a slave, and synchronize it's configuration and time
+         * The url of a master HyperTimer, for example "ws://localhost:8081". If configured,
+         * the HyperTimer will run as a slave, and synchronize it's configuration and time
          * with its masters configuration and time.
          */
         master ?  : string;
         /**
-         * If provided, the hypertimer will open a websocket on the given port. The hypertimer
-         * will than act as a master. Multiple hypertimer slaves can connect to a master.
+         * If provided, the HyperTimer will open a websocket on the given port. The HyperTimer
+         * will than act as a master. Multiple HyperTimer slaves can connect to a master.
          */
         port ?  : number;
     }
