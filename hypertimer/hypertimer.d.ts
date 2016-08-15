@@ -18,8 +18,8 @@
  */
 
 declare namespace hypertimer {
-    export interface HyperTimer {
-        new(options ?  : HyperTimerOptions) : HyperTimer;
+    export interface hypertimer {
+        new(options ?  : HyperTimerOptions) : hypertimer;
 
         /**
          * Is the timer running?
