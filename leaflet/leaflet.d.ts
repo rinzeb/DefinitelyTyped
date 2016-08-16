@@ -2144,6 +2144,18 @@ declare namespace L {
         fitWorld(options?: Map.FitBoundsOptions): Map;
 
         /**
+          * Sets the view of the map (geographical center and zoom) performing a smooth
+          * pan-zoom animation
+          */
+        flyTo(latlng: LatLngExpression, targetZoom: number, options?: FlyToOptions): Map;
+        
+        /**
+          * Sets the view of the map (geographical center and zoom) performing a smooth
+          * pan-zoom animation
+          */
+        flyToBounds(bounds: LatLngBounds, options?: FlyToOptions): Map;
+        
+        /**
           * Pans the map to a given center. Makes an animated pan if new center is not more
           * than one screen away from the current one.
           */
@@ -2649,6 +2661,22 @@ declare namespace L.Map {
           */
         inertiaThreshold?: number;
 
+        // Interaction options
+
+        /**
+          * Controls how much the map's zoom level will change after a zoomIn(), zoomOut(), pressing + or - on the keyboard, or using the zoom controls. Values smaller than 1 (e.g. 0.5) allow for greater granularity.
+          *
+          * Default value: 1.
+          */
+        zoomDelta?: number;
+
+        /**
+          * Forces the map's zoom level to always be a multiple of this, particularly right after a fitBounds() or a pinch-zoom. By default, the zoom level snaps to the nearest integer; lower values (e.g. 0.5 or 0.1) allow for greater granularity. A value of 0 means the zoom level will not be snapped after fitBounds or a pinch-zoom.
+          *
+          * Default value: 1.
+          */
+        zoomSnap?: number;
+        
         // Control options
 
         /**
@@ -2700,6 +2728,20 @@ declare namespace L.Map {
          * Default value: true.
          */
         bounceAtZoomLimits?: boolean;
+    }
+    
+    export interface FlyToOptions {
+        /**
+          * If not specified, zoom animation will happen if the zoom origin is inside the current view.
+          * If true, the map will attempt animating zoom disregarding where zoom origin is.
+          * Setting false will make it always reset the view completely without animation.
+          */
+        animate?: boolean;
+        
+        /**
+         * Duration of animated panning, in seconds.
+         */
+        duration?: number;
     }
 
     export interface ZoomOptions {
