@@ -2152,7 +2152,7 @@ declare namespace L {
           * Sets the view of the map (geographical center and zoom) performing a smooth
           * pan-zoom animation
           */
-        flyTo(latlng: LatLngExpression, targetZoom: number, options?: Map.FlyToOptions): Map;
+        flyTo(latlng: LatLngExpression, targetZoom?: number, options?: Map.FlyToOptions): Map;
         
         /**
           * Sets the view of the map (geographical center and zoom) performing a smooth
