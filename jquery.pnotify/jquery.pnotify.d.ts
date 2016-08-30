@@ -162,7 +162,13 @@ interface PNotifyOptions {
     /**
      * Display a pull down menu to redisplay previous notices, and place the notice in the history.
      */
-    history?: boolean;
+    history?: {
+        history?: boolean;
+        menu?: boolean;
+        fixed?: boolean;
+        maxonscreen?: number;
+    };
+    
     /**
      * Maximum number of notifications to have onscreen.
      */
