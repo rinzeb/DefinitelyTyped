@@ -1004,7 +1004,7 @@ declare namespace L {
           * Function that will be used to get style options for vector layers created
           * for GeoJSON features.
           */
-        style?: (featureData: any) => any;
+        style?: (featureData: any, style?: any) => any;
 
         /**
           * Function that will be called on each created feature layer. Useful for attaching
