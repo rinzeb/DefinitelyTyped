@@ -993,6 +993,22 @@ declare namespace L {
 }
 
 declare namespace L {
+    export interface LocationFilter {
+      isEnabled?: any;
+      disable?: any;
+      enable?: any;
+      getBounds?: any;
+      on?: any;
+    }
+}
+
+declare namespace L {
+    export interface SidebarOptions {
+      [key: string]: any;
+    }
+}
+
+declare namespace L {
     export interface GeoJSONOptions {
         /**
           * Function that will be used for creating layers for GeoJSON points (if not

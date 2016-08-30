@@ -113,6 +113,7 @@ declare module "mongodb" {
     socketOptions?: SocketOptions;
     reconnectTries?: number;
     reconnectInterval?: number;
+    auto_reconnect?: boolean;
   }
 
   //http://mongodb.github.io/node-mongodb-native/2.1/api/ReplSet.html
@@ -574,6 +575,7 @@ declare module "mongodb" {
     readConcern: any;
     // Get current index hint for collection.
     hint: any;
+    ensureIndex: any;
     //http://mongodb.github.io/node-mongodb-native/2.1/api/Collection.html#aggregate
     aggregate(pipeline: Object[], callback: MongoCallback<any>): AggregationCursor;
     aggregate(pipeline: Object[], options?: CollectionAggregationOptions, callback?: MongoCallback<any>): AggregationCursor;
@@ -730,6 +732,8 @@ declare module "mongodb" {
     update(filter: Object, update: Object, options?: ReplaceOneOptions & { multi?: boolean }): Promise<WriteOpResult>;
     /** @deprecated use updateOne, updateMany or bulkWrite */
     update(filter: Object, update: Object, options: ReplaceOneOptions & { multi?: boolean }, callback: MongoCallback<WriteOpResult>): void;
+    /** @deprecated use updateOne, updateMany or bulkWrite */
+    update(filter: Object, update: Object, options: ReplaceOneOptions & { multi?: boolean, safe?: boolean }, callback: MongoCallback<WriteOpResult>): void;
     //http://mongodb.github.io/node-mongodb-native/2.1/api/Collection.html#updateMany
     updateMany(filter: Object, update: Object, callback: MongoCallback<UpdateWriteOpResult>): void;
     updateMany(filter: Object, update: Object, options?: { upsert?: boolean; w?: any; wtimeout?: number; j?: boolean; }): Promise<UpdateWriteOpResult>;
@@ -1026,7 +1030,8 @@ declare module "mongodb" {
     raw?: boolean,
     readPreference?: ReadPreference | string,
     partial?: boolean,
-    maxTimeMs?: number
+    maxTimeMs?: number,
+    logs?: number
   }
 
   //http://mongodb.github.io/node-mongodb-native/2.1/api/Collection.html#~insertWriteOpResult
