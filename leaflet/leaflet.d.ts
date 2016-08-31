@@ -993,12 +993,14 @@ declare namespace L {
 }
 
 declare namespace L {
-    export interface LocationFilter {
+    export class LocationFilter {
+      constructor(options: any);
       isEnabled?: any;
       disable?: any;
       enable?: any;
       getBounds?: any;
       on?: any;
+      addTo?: any;
     }
 }
 
@@ -3593,6 +3595,8 @@ declare namespace L {
           * optionally an options object.
           */
         new(latlngs: LatLngBoundsExpression, options?: PolylineOptions): Polyline;
+
+        fromEncoded(points: any): Polyline;
     }
     export var Polyline: PolylineStatic;
 
