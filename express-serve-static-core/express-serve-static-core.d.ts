@@ -155,6 +155,7 @@ declare module "express-serve-static-core" {
 
         headers: { [key: string]: string; };
 
+        user: any;
         /**
             * Check if the given `type(s)` is acceptable, returning
             * the best match when true, otherwise `undefined`, in which
