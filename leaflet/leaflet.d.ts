@@ -2753,7 +2753,7 @@ declare namespace L.Map {
         bounceAtZoomLimits?: boolean;
     }
     
-    export interface FlyToOptions {
+    export interface FlyToOptions extends FitBoundsOptions{
         /**
           * If not specified, zoom animation will happen if the zoom origin is inside the current view.
           * If true, the map will attempt animating zoom disregarding where zoom origin is.
