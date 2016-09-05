@@ -81,6 +81,7 @@ declare module "fs-extra" {
 		preserveTimestamps?: boolean
         dereference?: boolean
 		filter?: CopyFilter
+        recursive?: boolean
 	}
 
 	export interface OpenOptions {
