@@ -78,6 +78,11 @@ declare namespace L {
           * Returns true if the rectangle contains the given point.
           */
         contains(point: Point): boolean;
+        
+        /**
+          * Returns true if the rectangle overlaps the given bounds.
+          */
+        overlaps(otherBounds: Bounds): boolean;
 
         /**
           * Returns true if the rectangle intersects the given bounds.
@@ -1639,6 +1644,11 @@ declare namespace L {
           * Returns true if the rectangle contains the given point.
           */
         contains(latlng: LatLngExpression): boolean;
+        
+        /**
+          * Returns true if the rectangle overlaps the given bounds.
+          */
+        overlaps(otherBounds: LatLngBoundsExpression): boolean;
 
         /**
           * Returns true if the rectangle intersects the given bounds.
